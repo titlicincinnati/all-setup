@@ -26,8 +26,12 @@ how find file: find / -name context.xml (context.xml :file name)
       template:
         src: tomcat-users.xml
         dest: /root/tomcat/conf/tomcat-users.xml
+<role rolename="manager-gui"/>
+  <role rolename="manager-script"/>
+  <user username="tomcat" password="raham123" roles="manager-gui, manager-script"/>
 
-    - name: delete two lines in context.xml
+
+    - name: delete two lines No 21 & 22 in context.xml
       template:
         src: context.xml
         dest: /root/tomcat/webapps/manager/META-INF/context.xml
@@ -37,3 +41,13 @@ how find file: find / -name context.xml (context.xml :file name)
  
     - name: start the tomcat
       shell: nohup /root/tomcat/bin/startup.sh
+    command: ./bin/startup.sh
+
+Step-7: Install Deploy to Container
+Step-8: go to jenkins>>add post build step>>deploy war ear to container 
+step-9: ADD CONTAINER -9
+STEP-10: POST BUILD ACTION --> DEPLOY TO EAR/WAR CONTAINER --> DETAILS 
+[target/*.war & /swiggy application]
+GIVE TOMCAT URL AND TOMCAT CREDENTIALS_(USERNAME:TOMCAT, PASSWORD:tomcat)
+
+ticketing tool ;- Sharepoint 
