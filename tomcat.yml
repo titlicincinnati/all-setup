@@ -22,7 +22,6 @@
       
 how find file: find / -name context.xml (context.xml :file name)
 
-
     - name: setting the roles in tomcat-user.xml file
       template:
         src: tomcat-users.xml
@@ -32,6 +31,9 @@ how find file: find / -name context.xml (context.xml :file name)
       template:
         src: context.xml
         dest: /root/tomcat/webapps/manager/META-INF/context.xml
-
+        
+[21 <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+ 22          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /> ]
+ 
     - name: start the tomcat
       shell: nohup /root/tomcat/bin/startup.sh
