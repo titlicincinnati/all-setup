@@ -19,6 +19,10 @@
     - name: install java
       command: yum install java-1.8.0-openjdk -y
 
+      
+how find file: find / -name context.xml (context.xml :file name)
+
+
     - name: setting the roles in tomcat-user.xml file
       template:
         src: tomcat-users.xml
